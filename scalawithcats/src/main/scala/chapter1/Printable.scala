@@ -14,12 +14,27 @@ object Printable:
     def format(cat: Cat) =
       s"${cat.name} is a ${cat.age} year-old ${cat.color} cat"
 
+object PrintableOps:
+
+  extension [A] (a: A)
+    def format(using printable: Printable[A]): String =
+      Printable.format(a)
+
+  extension [A] (a: A)
+    def print(using printable: Printable[A]): Unit =
+      Printable.print(a)
+
 final case class Cat(name: String, age: Int, color: String)
 
 @main def main(): Unit =
-  import Printable.*
+
   val cat = Cat("Buffy", 16, "grey")
+
+  import Printable.*
   print(cat)
+
+  import PrintableOps.*
+  cat.print
 
 
 
