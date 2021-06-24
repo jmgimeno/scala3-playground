@@ -2,7 +2,7 @@
 ThisBuild / scalaVersion := "3.0.0"
 ThisBuild / version := "1.0.0"
 
-lazy val root =
+lazy val `scala3-playground` =
   project
     .in(file("."))
     .aggregate(zionomicon)
