@@ -1,15 +1,27 @@
-val scala3Version = "3.0.0"
 
-lazy val root = project
-  .in(file("."))
-  .settings(
-    name := "scala3-playground",
-    version := "0.1.0",
+ThisBuild / scalaVersion := "3.0.0"
+ThisBuild / version := "1.0.0"
 
-    scalaVersion := scala3Version,
+lazy val root =
+  project
+    .in(file("."))
+    .aggregate(zionomicon)
 
-    libraryDependencies ++= Seq(
-      "com.novocode" % "junit-interface" % "0.11" % "test",
-      "dev.zio" %% "zio" % "1.0.9"
+lazy val zionomicon =
+  project
+    .in(file("zionomicon"))
+    .settings(
+      libraryDependencies ++= Seq(
+        "com.novocode" % "junit-interface" % "0.11" % "test",
+        "dev.zio" %% "zio" % "1.0.9"
+      )
     )
-  )
+
+lazy val scalawithcats =
+  project
+    .in(file("scalawithcats"))
+    .settings(
+      libraryDependencies ++= Seq(
+        "org.typelevel" %% "cats-core" % "2.6.1"
+      )
+    )

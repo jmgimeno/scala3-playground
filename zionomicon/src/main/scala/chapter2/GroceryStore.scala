@@ -1,4 +1,4 @@
-package zionomicon.chapter2
+package chapter2
 
 import zio.*
 
@@ -14,7 +14,6 @@ val goShoppingLater =
 val goShoppingRepeat =
   goShoppingLater.repeatN(5)
 
-object GroceryStore extends App:
+object GroceryStore extends App :
   def run(args: List[String]) =
     goShoppingRepeat.exitCode
-

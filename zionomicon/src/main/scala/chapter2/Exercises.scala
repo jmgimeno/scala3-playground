@@ -1,4 +1,4 @@
-package zionomicon.chapter2
+package chapter2
 
 import java.io.PrintWriter
 
