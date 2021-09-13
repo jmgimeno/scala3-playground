@@ -12,16 +12,18 @@ trait Counter[F[_]]:
   def incr: F[Unit]
   def get: F[Int]
 
-def mainCounter[F[_]](ref: Ref[F, Int]): Counter[F] =
-  new Counter[F]:
-    def incr: F[Unit] = ref.update(_ + 1)
-    def get: F[Int] = ref.get
+def mainCounter[F[_] : Sync](): F[Counter[F]] =
+  Ref[F].of(0) map { ref =>
+    new Counter[F] :
+      def incr: F[Unit] = ref.update(_ + 1)
+
+      def get: F[Int] = ref.get
+  }
 
 def program[F[_] : Console : Sync] : F[Unit] =
   for
     _ <- Console[F].println("Init counter")
-    r <- Ref[F].of(0)
-    c = mainCounter(r)
+    c <- mainCounter()
     _ <- c.incr.replicateA(100)
     v <- c.get
     _ <- Console[F].println(s"Counter value is $v")
