@@ -20,14 +20,16 @@ def mainCounter[F[_] : Sync](): F[Counter[F]] =
       def get: F[Int] = ref.get
   }
 
-def program[F[_] : Console : Sync] : F[Unit] =
+def program[F[_] : Console : Sync](c: Counter[F]) : F[Unit] =
   for
     _ <- Console[F].println("Init counter")
-    c <- mainCounter()
     _ <- c.incr.replicateA(100)
     v <- c.get
     _ <- Console[F].println(s"Counter value is $v")
   yield ()
 
 object Main extends IOApp.Simple:
-  val run = program[IO]
+  val run = for
+    c <- mainCounter[IO]()
+    _ <- program(c)
+  yield ()
