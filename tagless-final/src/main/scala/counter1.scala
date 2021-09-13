@@ -1,4 +1,4 @@
-import cats.data.State
+import cats.data.StateT
 
 import cats.effect.IO
 import cats.effect.IOApp
@@ -20,7 +20,16 @@ def mainCounter[F[_] : Sync](): F[Counter[F]] =
       def get: F[Int] = ref.get
   }
 
-def program[F[_] : Console : Sync](c: Counter[F]) : F[Unit] =
+def testCounter[F[_] : Applicative]: Counter[[X] =>> StateT[F, Int, X]] =
+  new Counter[[X] =>> StateT[F, Int, X]]:
+    def incr : StateT[F, Int, Unit] = StateT { counter =>
+      (counter+1, ()).pure
+    }
+    def get: StateT[F, Int, Int] = StateT { counter =>
+      (counter, counter).pure
+    }
+
+def program[F[_] : Console : Monad](c: Counter[F]) : F[Unit] =
   for
     _ <- Console[F].println("Init counter")
     _ <- c.incr.replicateA(100)
