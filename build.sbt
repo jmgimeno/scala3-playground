@@ -5,7 +5,7 @@ ThisBuild / version := "1.0.0"
 lazy val `scala3-playground` =
   project
     .in(file("."))
-    .aggregate(`tagless-final`,scalawithcats,zionomicon)
+    .aggregate(`tagless-final`, scalawithcats, zionomicon, scalacheck)
 
 lazy val zionomicon =
   project
@@ -32,5 +32,14 @@ lazy val `tagless-final` =
     .settings(
       libraryDependencies ++= Seq(
         "org.typelevel" %% "cats-effect" % "3.2.8"
+      )
+    )
+
+lazy val scalacheck =
+  project
+    .in(file("scalacheck"))
+    .settings(
+      libraryDependencies ++= Seq(
+        "org.scalacheck" %% "scalacheck" % "1.15.4" % "test"
       )
     )

@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/scala3-playground.iml" filepath="$PROJECT_DIR$/.idea/modules/scala3-playground.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/scala3-playground-build.iml" filepath="$PROJECT_DIR$/.idea/modules/scala3-playground-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/scalacheck.iml" filepath="$PROJECT_DIR$/.idea/modules/scalacheck.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/scalawithcats.iml" filepath="$PROJECT_DIR$/.idea/modules/scalawithcats.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/tagless-final.iml" filepath="$PROJECT_DIR$/.idea/modules/tagless-final.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/zionomicon.iml" filepath="$PROJECT_DIR$/.idea/modules/zionomicon.iml" />
