@@ -7,6 +7,10 @@ lazy val `scala3-playground` =
     .in(file("."))
     .aggregate(`tagless-final`, scalawithcats, zionomicon, scalacheck)
 
+lazy val basic =
+  project
+    .in(file("basic"))
+
 lazy val zionomicon =
   project
     .in(file("zionomicon"))

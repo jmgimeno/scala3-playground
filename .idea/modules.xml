@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/basic.iml" filepath="$PROJECT_DIR$/.idea/modules/basic.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/scala3-playground.iml" filepath="$PROJECT_DIR$/.idea/modules/scala3-playground.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/scala3-playground-build.iml" filepath="$PROJECT_DIR$/.idea/modules/scala3-playground-build.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/scalacheck.iml" filepath="$PROJECT_DIR$/.idea/modules/scalacheck.iml" />
