@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ScalaCompilerConfiguration">
-    <profile name="sbt 1" modules="basic,root,scala3-playground,scala3-playground_3569,scala3-simple,scalacheck,scalawithcats,tagless-final,zionomicon" />
+    <profile name="sbt 1" modules="basic,micoe,root,scala3-playground,scala3-playground_3569,scala3-simple,scalacheck,scalawithcats,tagless-final,zionomicon" />
   </component>
 </project>

@@ -8,6 +8,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/basic" />
+            <option value="$PROJECT_DIR$/micoe" />
             <option value="$PROJECT_DIR$/project" />
             <option value="$PROJECT_DIR$/scalacheck" />
             <option value="$PROJECT_DIR$/scalawithcats" />

@@ -47,3 +47,8 @@ lazy val scalacheck =
         "org.scalacheck" %% "scalacheck" % "1.15.4" % "test"
       )
     )
+
+lazy val micoe =
+  project
+    .in(file("micoe"))
+
