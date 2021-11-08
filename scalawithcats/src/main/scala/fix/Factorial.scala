@@ -1,13 +1,21 @@
 package fix
 
-import cats.{Defer, Eval}
+import cats.{Applicative, Defer, Eval}
 import cats.Defer.*
+import cats.syntax.applicative.*
+import cats.syntax.functor.*
 
 object Factorial {
 
   def fact(n: Int): BigInt =
     if n == 0 then 1
     else n * fact(n - 1)
+
+  def absFact[F[_] : Defer : Applicative](n: Int): F[BigInt] =
+    if (n == 0) then BigInt(1).pure
+    else Defer[F].defer {
+      absFact(n - 1).map(_ * n)
+    }
 
   def factE(n: Int): Eval[BigInt] =
     if (n == 0) then Eval.now(1)
@@ -29,5 +37,7 @@ object Factorial {
     println(factE(10_000).value)
     println("-" * 30)
     println(factFixF(10_000).value)
+    println("-" * 30)
+    println(absFact[Eval](10_000).value)
   }
 }
