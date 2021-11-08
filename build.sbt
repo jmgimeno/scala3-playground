@@ -26,7 +26,8 @@ lazy val scalawithcats =
     .in(file("scalawithcats"))
     .settings(
       libraryDependencies ++= Seq(
-        "org.typelevel" %% "cats-core" % "2.6.1"
+        "org.typelevel" %% "cats-core" % "2.6.1",
+        "org.typelevel" %% "cats-effect" % "3.2.9"
       )
     )
 
@@ -35,7 +36,7 @@ lazy val `tagless-final` =
     .in(file("tagless-final"))
     .settings(
       libraryDependencies ++= Seq(
-        "org.typelevel" %% "cats-effect" % "3.2.8"
+        "org.typelevel" %% "cats-effect" % "3.2.9"
       )
     )
 

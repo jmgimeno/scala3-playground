@@ -2,6 +2,7 @@ package fix
 
 import cats.{Applicative, Defer, Eval}
 import cats.Defer.*
+import cats.effect.IO
 import cats.syntax.applicative.*
 import cats.syntax.functor.*
 
@@ -32,12 +33,27 @@ object Factorial {
   // Stack-safe
   val factFixF = Defer[[A] =>> Function1[Int, A]].fix(factF)
 
+  def factIO(n: Int): IO[BigInt] = n match {
+    case 0 => IO.pure(1)
+    case n => IO.defer {
+      factIO(n - 1).map {
+        m => m * n
+      }
+    }
+  }
+
   def main(args: Array[String]): Unit = {
+    import cats.effect.unsafe.implicits.global
+
     //println(fact(10_000))
     println(factE(10_000).value)
     println("-" * 30)
     println(factFixF(10_000).value)
     println("-" * 30)
     println(absFact[Eval](10_000).value)
+    println("-" * 30)
+    println(factIO(10_000).unsafeRunSync())
+    println("-" * 30)
+    println(absFact[IO](10_000).unsafeRunSync())
   }
 }
