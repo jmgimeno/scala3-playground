@@ -1,5 +1,5 @@
 
-ThisBuild / scalaVersion := "3.0.0"
+ThisBuild / scalaVersion := "3.1.0"
 ThisBuild / version := "1.0.0"
 
 lazy val `scala3-playground` =
