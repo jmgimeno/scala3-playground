@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ScalaSbtSettings">
+    <option name="customVMPath" />
+    <option name="linkedExternalProjectsSettings">
+      <SbtProjectSettings>
+        <option name="converterVersion" value="1" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/basic" />
+            <option value="$PROJECT_DIR$/micoe" />
+            <option value="$PROJECT_DIR$/project" />
+            <option value="$PROJECT_DIR$/scalacheck" />
+            <option value="$PROJECT_DIR$/scalawithcats" />
+            <option value="$PROJECT_DIR$/tagless-final" />
+            <option value="$PROJECT_DIR$/zionomicon" />
+          </set>
+        </option>
+        <option name="sbtVersion" value="1.6.1" />
+      </SbtProjectSettings>
+    </option>
+  </component>
+</project>
